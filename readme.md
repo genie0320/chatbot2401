@@ -1,71 +1,23 @@
-#Environment setting
-## Install or update python.
-```
-# Current Python Version
-python --version
+# AI Project : Assistants API
 
-# Install the Latest Python Version
-python -m pip install --upgrade python
+## Overview
+GPT에 Assistants API(이하 : Ast)를 붙여서 특정분야에 전문화된 작업을 효율적으로 진행할 수 있다.
+(이를테면 GPT들은 숫자에 아주 약하다.)
+Categoty : `AI`, `API`
 
-# Update Python Using Pip
-python -m pip install --upgrade pip
 
-# Install Python Launcher (Windows Only):
-# This allows you to specify the version of Python you want to use when running scripts
-python -m pip install --upgrade launcher
+## Flow
+![Assistants API flow](ast_flow.png)
+- 잘 보면, GPT가 매 입력시마다 요청을 보내는 것에 반해, Ast는 입력 후 특별히 '실행(run)'을 해줘야 한다. 
+기본 GPT에서 일련의 가공작업을 거쳐서, 필요한 부분만을 가공/선별에서 Ast에 던지는 구조인 것 같다. 
+Ast의 이용비용은 tool마다 다르지만, 기본적으로 GPT3.5-turbo 기준 30배가 더 비싸고, 느리다.
+베타라는 것을 감안해도 반응이 기민하지 않다. (당연하지만) 최종사용자와의 직접 연결하는 용도는 아니다.
 
-# Verify the Updated Version.
-```
+## Resources
 
-## Set requirments(Optional)
-```
-# Install Dependencies:
-pip install -r requirements.txt
 
-# Create requirements file
-pip freeze > requirements.txt
-```
+## Issue
+[] 요청을 던지고 나서 결과가 나올때까지 반복적으로 찔러보는 기능 추가.
 
-## Virtual Environment
-```
-# Create
-python -m venv genv
 
-[!TIP]
-> 권한 에러 발생 시 : Windows PowerShell 관리자로 실행 후 `Set-ExecutionPolicy RemoteSigned` > Y
-
-# Activate
-genv\Scripts\activate
-
-# Listing packages in VE
-pip list --local
-
-# Deactivate
-deactivate
-
-[!NOTE]
-> To create VE and access global package in venv `python -m venv venv --system-site-packages`
-```
-
-## Environment variables
-```
-# Install and import the python-dotenv package
-pip install python-dotenv
-
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-api_key = os.getenv("OPENAI_API_KEY")
-
-# Create .env file
-API_KEY=your_key
-DEBUG=True
-```
-
-## Etc
-```
-# Install OpenAI
-pip install --upgrade openai
-```
+## Tips
